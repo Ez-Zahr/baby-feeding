@@ -25,7 +25,8 @@ const $ = (id) => document.getElementById(id);
 const el = {
   sync: $("sync"), lastFed: $("lastFed"), lastFedAgo: $("lastFedAgo"),
   nextCard: $("nextCard"), nextFeed: $("nextFeed"), countdown: $("countdown"),
-   interval: $("interval"), intervalUnit: $("intervalUnit"), minus: $("minus"), plus: $("plus"), fedBtn: $("fedBtn"), refresh: $("refresh"),
+  interval: $("interval"), intervalUnit: $("intervalUnit"), minus: $("minus"),
+  plus: $("plus"), fedBtn: $("fedBtn"), refresh: $("refresh"),
 };
 
 // ---------- Formatting ----------
@@ -140,7 +141,7 @@ function clampInterval(v) {
 // ---------- Actions ----------
 el.fedBtn.addEventListener("click", async () => {
   // Guard against accidental double taps
-  if (state.lastFed && Date.now() - state.lastFed < 120 * 60000) {
+  if (state.lastFed && Date.now() - state.lastFed < 2 * 60 * 60000) {
     if (!confirm("سُجّلت رضعة قبل أقل من ساعتين. هل تريد تسجيل رضعة جديدة؟")) return;
   }
   el.fedBtn.disabled = true;
