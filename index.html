@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>رضاعة الطفل</title>
+  <meta name="theme-color" content="#f7a8b8">
+  <meta name="description" content="تتبّع آخر رضعة للطفل وموعد الرضعة التالية.">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="الرضاعة">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>رضاعة الطفل</h1>
+      <div class="sync-wrap">
+        <span id="sync" class="sync" aria-live="polite">جارٍ التحميل…</span>
+        <button id="refresh" class="refresh" type="button" aria-label="تحديث">↻</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <p class="label">آخر رضعة</p>
+      <p id="lastFed" class="value">—</p>
+      <p id="lastFedAgo" class="sub">لم تُسجَّل أي رضعة بعد</p>
+    </section>
+
+    <section class="card" id="nextCard">
+      <p class="label">الرضعة التالية</p>
+      <p id="nextFeed" class="value">—</p>
+      <p id="countdown" class="sub">&nbsp;</p>
+    </section>
+
+    <section class="card interval">
+      <p class="label">الفاصل الزمني</p>
+      <div class="stepper">
+        <button id="minus" class="step" type="button" aria-label="تقليل الفاصل">−</button>
+        <span class="interval-value"><span id="interval">3</span> <span id="intervalUnit">ساعات</span></span>
+        <button id="plus" class="step" type="button" aria-label="زيادة الفاصل">+</button>
+      </div>
+    </section>
+
+    <button id="fedBtn" class="fed" type="button">🍼 رضع الآن</button>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
