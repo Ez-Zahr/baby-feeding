@@ -140,8 +140,8 @@ function clampInterval(v) {
 // ---------- Actions ----------
 el.fedBtn.addEventListener("click", async () => {
   // Guard against accidental double taps
-  if (state.lastFed && Date.now() - state.lastFed < 10 * 60000) {
-    if (!confirm("سُجّلت رضعة قبل أقل من 10 دقائق. هل تريد تسجيل رضعة جديدة؟")) return;
+  if (state.lastFed && Date.now() - state.lastFed < 120 * 60000) {
+    if (!confirm("سُجّلت رضعة قبل أقل من ساعتين. هل تريد تسجيل رضعة جديدة؟")) return;
   }
   el.fedBtn.disabled = true;
   state.lastFed = Date.now();
